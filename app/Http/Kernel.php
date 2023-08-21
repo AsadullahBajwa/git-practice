@@ -45,7 +45,7 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
         'protectedPage'=>[
-            \App\Http\Middleware\checkAge2::class,
+            \App\Http\Middleware\checkAgeGrp::class,
         ]
     ];
 
@@ -57,7 +57,7 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $routeMiddleware = [
-        'protectPage' => \App\Http\Middleware\checkage3::class,
+        'protectPage' => \App\Http\Middleware\checkAgeRoute::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
