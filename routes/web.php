@@ -13,8 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('noaccess',function(){
+    return view('noaccess');
+});
+
+
+
+Route::group(['middleware'=>['protectedPage']],function(){
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+    
+
+    Route::get('home',function(){
+        return view('home');
+    });
 });
 
 Route::get('/test-mongodb', function () {
@@ -24,4 +42,4 @@ Route::get('/test-mongodb', function () {
     } catch (\Exception $e) {
         return "MongoDB not connected. Error: " . $e->getMessage();
     }
-});
+})->middleware('protectPage');

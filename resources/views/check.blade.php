@@ -1,0 +1,1 @@
+<h1>THIS is check pages</h1>
